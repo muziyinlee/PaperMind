@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
+body {
+  background-color: #f3f4f6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: 20px auto;
+  padding: 15mm 15mm;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+}
+
+@media print {
+  body { background: none; }
+  .a4-page { 
+    margin: 0; 
+    box-shadow: none; 
+    width: 100%; 
+    height: auto; 
+    min-height: 0; 
+    padding: 10mm 15mm; 
+    box-sizing: border-box; 
+    display: block; /* Override flex layout to prevent breaking inside */
+  }
+  .no-print, .print\:hidden {
+    display: none !important;
+  }
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}
+
+.section-title {
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
+  color: #1e293b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.score-box {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: 8px;
+  border: 1px solid #bfdbfe;
+}
+
+.detail-table th, .detail-table td {
+  border: 1px solid #e2e8f0;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+.detail-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+.detail-table td {
+  font-size: 0.75rem;
+}
+.detail-table.styled-header th { background-color: #e0f2fe; color: #0369a1; }
+.detail-table tr:nth-child(even) { background-color: #f8fafc; }
+
+.q-num { font-weight: bold; color: #64748b; width: 40px; text-align: center; }
+
+.badge-error { 
+  background-color: #fee2e2; 
+  color: #991b1b; 
+  padding: 1px 4px; 
+  border-radius: 3px; 
+  font-weight: bold; 
+  border: 1px solid #fecaca; 
+}

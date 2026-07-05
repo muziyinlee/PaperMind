@@ -1,0 +1,6 @@
+{
+  "name": "PaperMind 试卷智析",
+  "description": "智能分析上传的试卷并生成深度诊断报告的工具",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
